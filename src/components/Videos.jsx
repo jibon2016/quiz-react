@@ -8,7 +8,6 @@ export default function Videos () {
   const [page, setPaage] = useState(1);
   const {loading, error, videos, hasMore} = useVideoList(page);
 
-  InfiniteScroll
   return (
     <div>
       {videos.length > 0 && (
@@ -20,9 +19,9 @@ export default function Videos () {
       >
         { videos.map((video) => 
         video.noq > 0 ?(
-          <Link to={`/quiz/${video.youtubeID}`}  key={video.youtubeID} >
-            <Video title={video.title} id={video.youtubeID} noq={video.noq} />
-          </Link>
+          <Link to={`/quiz/${video.youtubeID}`} key={video.youtubeID} >
+          <Video title={video.title} id={video.youtubeID} noq={video.noq} />
+        </Link>
         ) : (
           <Video key={video.youtubeID} title={video.title} id={video.youtubeID} noq={video.noq} />
         )
